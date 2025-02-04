@@ -1,18 +1,13 @@
 const API_KEY = '...'
-const IP_URL = `https://api.ipgeolocation.io/getip`
-const LOC_URL = `https://thingproxy.freeboard.io/fetch/http://ip-api.com/json/`
+let my_ip = await (await fetch("https://wtfismyip.com/json").catch()).json().catch()
+let ip_data = await (await fetch(`https://uncors.vercel.app/?url=http://ip-api.com/json/${my_ip.YourFuckingIPAddress}`).catch()).json().catch()
 
 function getRealLocation() {
     return Intl.DateTimeFormat().resolvedOptions().timeZone
 }
 
-async function fetchJson(url) {
-    return await (await fetch(url)).json()
-}
-
 async function getSimulatedLocation() {
-    const ip = (await fetchJson(IP_URL)).ip
-    return (await fetchJson(LOC_URL + ip)).time_zone
+    return ip_data.time_zone
 }
 
 async function detectVPN() {
@@ -66,8 +61,6 @@ window.onload = async () => {
     let fontSize = Math.min(window.innerHeight / 10, window.innerWidth / 10);
     data.style.fontSize = `${fontSize}px`;
 
-    let my_ip = await (await fetch("https://wtfismyip.com/json").catch()).json().catch()
-    let ip_data = await (await fetch(`https://uncors.vercel.app/?url=http://ip-api.com/json/${my_ip.YourFuckingIPAddress}`).catch()).json().catch()
 
     const videoData = await fetch('https://files.catbox.moe/ymd50u.mp4').catch(error);
     video.src = URL.createObjectURL(await videoData.blob());
