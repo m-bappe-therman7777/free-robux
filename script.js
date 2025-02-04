@@ -37,7 +37,8 @@ function closeForm() {
   document.getElementById('formContainer').style.display = 'none';
   document.body.classList.remove('blurred'); // This will remove the blur
 }
-window.onload = async () => {
+async () => {
+  console.log("41");
   if (await detectVPN().result) {
     console.log("VPN!!!!");
     while (await detectVPN().result) {
