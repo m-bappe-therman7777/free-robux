@@ -60,7 +60,7 @@ window.onload = async () => {
     "Definitely",
     "Absolutely",
   ]
-
+  console.log("63 hit!");
   try {
     const memes = []
     const push = (tit, con, add) => memes.push(`${tit}: ${con}${add || ''}`)
