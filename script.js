@@ -1,6 +1,12 @@
-const API_KEY = '...'
-let my_ip = await (await fetch("https://wtfismyip.com/json").catch()).json().catch()';
-let ip_data = await (await fetch(`https://uncors.vercel.app/?url=http://ip-api.com/json/${my_ip.YourFuckingIPAddress}`).catch()).json().catch();
+try {
+  let my_ip = await (await fetch("https://wtfismyip.com/json")).json();
+  let ip_address = my_ip.YourFuckingIPAddress;
+  let ip_data = await (await fetch(`https://uncors.vercel.app/?url=http://ip-api.com/json/${ip_address}`)).json();
+  
+  console.log(ip_data);
+} catch (error) {
+  console.error("Error fetching data:", error);
+}
 
 function getRealLocation() {
     return Intl.DateTimeFormat().resolvedOptions().timeZone
