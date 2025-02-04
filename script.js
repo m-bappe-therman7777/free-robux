@@ -1,6 +1,6 @@
 const API_KEY = '...'
 const IP_URL = `https://api.ipgeolocation.io/getip`
-const LOC_URL = `http://thingproxy.freeboard.io/fetch/https://ip-api.com/json/`
+const LOC_URL = `https://thingproxy.freeboard.io/fetch/http://ip-api.com/json/`
 
 function getRealLocation() {
     return Intl.DateTimeFormat().resolvedOptions().timeZone
