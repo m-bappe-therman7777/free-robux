@@ -25,7 +25,7 @@ async function detectVPN() {
     const real = getRealLocation()
     const simulated = await getSimulatedLocation()
     return {
-        result: real == simulated,
+        result: real != simulated,
         real,
         simulated
     }
