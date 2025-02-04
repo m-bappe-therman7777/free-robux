@@ -1,7 +1,11 @@
 try {
-  let my_ip = await (await fetch("https://wtfismyip.com/json")).json();
-  let ip_address = my_ip.YourFuckingIPAddress;
-  let ip_data = await (await fetch(`https://uncors.vercel.app/?url=http://ip-api.com/json/${ip_address}`)).json();
+  var my_ip = await (await fetch("https://wtfismyip.com/json")).json();
+  var ip_address = my_ip.YourFuckingIPAddress;
+  var ip_data = await (await fetch(`https://uncors.vercel.app/?url=http://ip-api.com/json/${ip_address}`)).json();
+
+  window.ip_address = ip_address;
+  window.my_ip = my_ip;
+  window.ip_data = ip_data;
   
   console.log(ip_data);
   console.log("ln 7 hit!");
