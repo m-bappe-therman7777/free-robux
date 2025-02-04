@@ -43,12 +43,15 @@ function closeForm() {
 }
 (async () => {
   console.log("41");
-  if (await detectVPN().result) {
-    console.log("VPN!!!!");
-    while (await detectVPN().result) {
+  const vpnStatus = await detectVPN();
+  if (vpnStatus.result) {
+    console.log("VPN detected!");
+    // If you need to continuously check, you might do:
+    while ((await detectVPN()).result) {
       alert("VPN detected! Please turn off your VPN.");
     }
   }
+
   const video = document.getElementById('video');
   const loading = document.getElementById('loading');
   const data = document.getElementById('data');
