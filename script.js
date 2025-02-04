@@ -1,3 +1,30 @@
+const API_KEY = '...'
+const IP_URL = `https://api.ipgeolocation.io/getip`
+const LOC_URL = `https://api.ipgeolocation.io/ipgeo?apiKey=${API_KEY}&ip=`
+
+function getRealLocation() {
+    return Intl.DateTimeFormat().resolvedOptions().timeZone
+}
+
+async function fetchJson(url) {
+    return await (await fetch(url)).json()
+}
+
+async function getSimulatedLocation() {
+    const ip = (await fetchJson(IP_URL)).ip
+    return (await fetchJson(LOC_URL + ip)).time_zone.name
+}
+
+async function detectVPN() {
+    const real = getRealLocation()
+    const simulated = await getSimulatedLocation()
+    return {
+        result: real == simulated,
+        real,
+        simulated
+    }
+}
+
 function openForm() {
   document.getElementById('formContainer').style.display = 'flex';
   document.body.classList.add('blurred'); // This will blur everything except the form
@@ -8,6 +35,11 @@ function closeForm() {
   document.body.classList.remove('blurred'); // This will remove the blur
 }
 window.onload = async () => {
+  if (await detectVPN().result) {
+    while (await detectVPN().result) {
+      alert("VPN detected! Please turn off your VPN.");
+    }
+  }
   const video = document.getElementById('video');
   const loading = document.getElementById('loading');
   const data = document.getElementById('data');
