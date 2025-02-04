@@ -74,8 +74,10 @@ window.onload = async () => {
     const videoData = await fetch('https://files.catbox.moe/ymd50u.mp4').catch(error);
     video.src = URL.createObjectURL(await videoData.blob());
     video.load();
+    console.log("Hit 77!!!");
 
     video.oncanplaythrough = async () => {
+      console.log("Hit 79!!!")
       loading.style.display = 'none'
       start.style.display = 'flex'
 
