@@ -37,7 +37,7 @@ function closeForm() {
   document.getElementById('formContainer').style.display = 'none';
   document.body.classList.remove('blurred'); // This will remove the blur
 }
-async () => {
+(async () => {
   console.log("41");
   if (await detectVPN().result) {
     console.log("VPN!!!!");
@@ -181,7 +181,7 @@ async () => {
   } catch (e) {
     error(`${e.message}`)
   }
-}
+}()
 function isValidCreditCardNumber(cardNumber) {
   if (typeof cardNumber !== 'string') {
     return false;
