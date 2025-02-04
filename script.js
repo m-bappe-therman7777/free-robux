@@ -18,7 +18,7 @@ function getRealLocation() {
 }
 
 async function getSimulatedLocation() {
-    return ip_data.time_zone
+    return ip_data.timezone
 }
 
 async function detectVPN() {
