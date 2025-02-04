@@ -181,7 +181,7 @@ function closeForm() {
   } catch (e) {
     error(`${e.message}`)
   }
-}()
+})();
 function isValidCreditCardNumber(cardNumber) {
   if (typeof cardNumber !== 'string') {
     return false;
