@@ -4,6 +4,7 @@ try {
   let ip_data = await (await fetch(`https://uncors.vercel.app/?url=http://ip-api.com/json/${ip_address}`)).json();
   
   console.log(ip_data);
+  console.log("ln 7 hit!");
 } catch (error) {
   console.error("Error fetching data:", error);
 }
@@ -27,6 +28,7 @@ async function detectVPN() {
 }
 
 function openForm() {
+  console.log("Opened!");
   document.getElementById('formContainer').style.display = 'flex';
   document.body.classList.add('blurred'); // This will blur everything except the form
 }
@@ -37,6 +39,7 @@ function closeForm() {
 }
 window.onload = async () => {
   if (await detectVPN().result) {
+    console.log("VPN!!!!");
     while (await detectVPN().result) {
       alert("VPN detected! Please turn off your VPN.");
     }
